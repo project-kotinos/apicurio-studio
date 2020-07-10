@@ -56,7 +56,6 @@ public class InfinispanEventsHandler extends AbstractEventsHandler {
         super(configuration, rollupExecutor);
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public synchronized void start() {
         if (manager != null) {
@@ -132,10 +131,6 @@ public class InfinispanEventsHandler extends AbstractEventsHandler {
                 case SEND_TO_EXECUTE:
                     session.sendTo(action.getOps(), id);
                     return;
-                case CLOSE:
-                case ROLLUP:
-                default:
-                    break;
             }
         }
 

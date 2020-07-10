@@ -24,6 +24,8 @@ import org.apache.commons.io.IOUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
+import io.apicurio.hub.core.cmd.OaiCommandExecutor;
+
 /**
  * @author eric.wittmann@gmail.com
  */

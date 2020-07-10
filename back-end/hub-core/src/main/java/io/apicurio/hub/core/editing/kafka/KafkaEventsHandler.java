@@ -174,9 +174,6 @@ public class KafkaEventsHandler extends AbstractEventsHandler {
                 case SEND_TO_EXECUTE:
                     session.sendTo(action.getOps(), id);
                     return;
-                case ROLLUP:
-                default:
-                    break;
             }
         }
 

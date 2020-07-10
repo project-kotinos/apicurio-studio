@@ -23,6 +23,8 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
+import io.apicurio.hub.core.storage.jdbc.DdlParser;
+
 /**
  * @author eric.wittmann@gmail.com
  */
