@@ -38,7 +38,7 @@ spec:
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
-  name: apicurio-studio-ws
+  name: apicurio-studio-ui
   annotations:
     #    ingress.kubernetes.io/rewrite-target: /
     ingress.kubernetes.io/proxy-connect-timeout: "3600"
@@ -47,11 +47,7 @@ metadata:
     ingress.kubernetes.io/send-timeout: "3600"    
     nginx.ingress.kubernetes.io/configuration-snippet: |
       proxy_set_header Upgrade $http_upgrade;
-      proxy_set_header Connection "Upgrade";
-      proxy_set_header X-Forwarded-Proto $scheme;
-      proxy_set_header X-Real-IP $remote_addr;
-      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-      proxy_redirect off;
+      proxy_set_header Connection $connection_upgrade;
   labels:
     module: apicurio-studio-ws
 spec:
@@ -62,3 +58,4 @@ spec:
       - backend:
           serviceName: "apicurio-studio-ws"
           servicePort: 8092
+        path: /ws
